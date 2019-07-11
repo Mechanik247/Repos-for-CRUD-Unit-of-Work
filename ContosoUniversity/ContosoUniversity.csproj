@@ -209,6 +209,7 @@
     <Compile Include="DAL\IStudentRepository.cs" />
     <Compile Include="DAL\SchoolContext.cs" />
     <Compile Include="DAL\StudentRepository.cs" />
+    <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
