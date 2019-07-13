@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ContosoUniversity.DAL;
+using ContosoUniversity.Models;
+using ContosoUniversity.Controllers;
 
 namespace ContosoUniversity.Util
 {
@@ -19,9 +21,18 @@ namespace ContosoUniversity.Util
 
             // регистрируем контроллер в текущей сборке
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterControllers(typeof(AccountController).Assembly);
+            builder.RegisterControllers(typeof(CourseController).Assembly);
+            builder.RegisterControllers(typeof(DepartmentController).Assembly);
+            builder.RegisterControllers(typeof(HomeController).Assembly);
+            builder.RegisterControllers(typeof(InstructorController).Assembly);
+            builder.RegisterControllers(typeof(StudentController).Assembly);
 
             // регистрируем споставление типов
+            builder.RegisterType<SchoolContext>();
             builder.RegisterType<StudentRepository>().As<IStudentRepository>();
+            builder.RegisterType<UnitOfWork>();
+
 
             // создаем новый контейнер с теми зависимостями, которые определены выше
             var container = builder.Build();
