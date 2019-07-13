@@ -12,7 +12,7 @@ namespace ContosoUniversity.Controllers
 {
     public class CourseController : Controller
     {
-        private UnitOfWork unitOfWork = new UnitOfWork();
+        private UnitOfWork unitOfWork = DependencyResolver.Current.GetService<UnitOfWork>();
 
         //
         // GET: /Course/

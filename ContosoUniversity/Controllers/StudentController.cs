@@ -14,7 +14,8 @@ namespace ContosoUniversity.Controllers
 
         public StudentController()
         {
-            this.studentRepository = new StudentRepository(new SchoolContext());
+            //this.studentRepository = new StudentRepository(new SchoolContext());
+            this.studentRepository = DependencyResolver.Current.GetService<IStudentRepository>();
         }
 
         public StudentController(IStudentRepository studentRepository)

@@ -13,7 +13,18 @@ namespace ContosoUniversity.Controllers
 {
     public class DepartmentController : Controller
     {
-        private SchoolContext db = new SchoolContext();
+        UnitOfWork unit;
+        GenericRepository<Department> repository;
+
+        private SchoolContext db;
+
+        public DepartmentController()
+        {
+            unit = DependencyResolver.Current.GetService<UnitOfWork>();
+            repository = unit.DepartmentRepository;
+            db = repository.context;
+        }
+
 
         //
         // GET: /Department/
@@ -21,7 +32,9 @@ namespace ContosoUniversity.Controllers
         public ActionResult Index()
         {
             var departments = db.Departments.Include(d => d.Administrator);
-            return View(departments.ToList());
+
+            //return View(departments.ToList());
+            return View(repository.Get());
         }
 
         //
