@@ -10,12 +10,14 @@ namespace ContosoUniversity.Controllers
 {
     public class StudentController : Controller
     {
+        UnitOfWork unit;
         private IStudentRepository studentRepository;
 
         public StudentController()
         {
             //this.studentRepository = new StudentRepository(new SchoolContext());
-            this.studentRepository = DependencyResolver.Current.GetService<IStudentRepository>();
+            unit = DependencyResolver.Current.GetService<UnitOfWork>();
+            this.studentRepository = unit.StudentRepository;
         }
 
         public StudentController(IStudentRepository studentRepository)

@@ -29,8 +29,6 @@ namespace ContosoUniversity.Util
             builder.RegisterControllers(typeof(StudentController).Assembly);
 
             // регистрируем споставление типов
-            builder.RegisterType<SchoolContext>();
-            builder.RegisterType<StudentRepository>().As<IStudentRepository>();
             builder.RegisterType<UnitOfWork>();
 
 
