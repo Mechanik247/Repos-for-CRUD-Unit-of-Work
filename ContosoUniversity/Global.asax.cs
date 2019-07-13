@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContosoUniversity.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,8 @@ namespace ContosoUniversity
     {
         protected void Application_Start()
         {
+            AutofacConfig.ConfigureContainer();
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
